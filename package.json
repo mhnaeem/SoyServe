@@ -1,0 +1,12 @@
+{
+  "name": "soy-serve",
+  "description": "Tools to deal with Soy templates using Node.js",
+  "version": "1.0.0",
+  "dependencies": {
+    "chokidar": "3.5.2",
+    "loader-utils": "2.0.0"
+  },
+  "devDependencies": {
+    "tiny-glob": "0.2.9"
+  }
+}

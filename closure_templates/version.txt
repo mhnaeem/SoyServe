@@ -1,0 +1,3 @@
+The following files were downloaded from https://dl.google.com/closure-templates/closure-templates-for-javascript-latest.zip
+
+Release: 2021-02-01
