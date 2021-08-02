@@ -1,7 +1,7 @@
 const path = require("path");
-const SoyPreProcessor = path.resolve(path.join(__dirname, '../soy_serve/webpack/soy_preprocessor'));
-const SoyCompiler = path.resolve(path.join(__dirname, '../soy_serve/webpack/soy_compile'));
-const SoyPostProcessor = path.resolve(path.join(__dirname, '../soy_serve/webpack/soy_postprocessor'));
+const SoyCompileLoader = require("../index").SoyCompileLoader;
+const SoyPostProcessorLoader = require("../index").SoyPostProcessorLoader;
+const SoyPreProcessorLoader = require("../index").SoyPreProcessorLoader;
 
 module.exports = {
     entry: ['sourceFiles0.js', './sourceFile1.js'],
@@ -17,7 +17,7 @@ module.exports = {
                 test: /\.soy/,
                 use: [
                     {
-                        loader: SoyPostProcessor,
+                        loader: SoyPostProcessorLoader,
                         options: {
                             modular: true,
                             useModule: true,
@@ -27,7 +27,7 @@ module.exports = {
                         }
                     },
                     {
-                        loader: SoyCompiler,
+                        loader: SoyCompileLoader,
                         options: {
                             locale: "en",
                             verbose: false,
@@ -37,7 +37,7 @@ module.exports = {
                         }
                     },
                     {
-                        loader: SoyPreProcessor,
+                        loader: SoyPreProcessorLoader,
                         options: {
                             addSoyDoc: true,
                             removeLeadingEmptySpaces: true

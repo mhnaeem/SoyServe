@@ -1,6 +1,6 @@
 const glob = require("tiny-glob");
-const SoyBuilder = require("../src/builder");
 const path = require("path");
+const SoyBuilder = require("../index").SoyBuilder;
 
 const runExample = async () => {
     let sourceFiles = await glob("**/*.soy", {
