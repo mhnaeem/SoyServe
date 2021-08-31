@@ -22,7 +22,9 @@ module.exports = function (content) {
 };
 
 const removeDebugStatements = (content) => {
-    return content.replace(/if\s\(goog\.DEBUG\)\s{\n.*\n}\n/g, "");
+    let toReturn = content.replace(/if\s\(goog\.DEBUG\)\s{\n.*\n}\n/g, "");
+    toReturn = toReturn.replace(/\+\s\(\(goog\.DEBUG\s&&\ssoy\.\$\$debugSoyTemplateInfo\)\s\?\s'.*?\s:\s''\)/g, "")
+    return toReturn;
 }
 
 const getNamespaceString = (content) => {
