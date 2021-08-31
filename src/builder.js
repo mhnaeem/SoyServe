@@ -19,6 +19,7 @@ class SoyBuilder {
         this.soyOptions = new SoyOptions(argsObject);
         this.watcher = null;
         this.javaExec = "";
+        this.jarPath = "";
         Logger.setVerbose(this.soyOptions.verbose || false);
     }
 
@@ -89,15 +90,29 @@ class SoyBuilder {
 
     /**
      *
+     * @returns {string}
+     */
+    getJarPath() {
+        if(this.soyOptions.options.customCompileJarPath) {
+            this.jarPath = this.soyOptions.options.customCompileJarPath;
+        }
+
+        if(!this.jarPath) {
+            this.jarPath = path.join(__dirname, "../closure_templates/SoyToJsSrcCompiler.jar");
+        }
+
+        return this.jarPath;
+    }
+
+    /**
+     *
      * @param {string[]} args - Arguments in the correct order that will be used to run the Java compiler
      * @returns {Promise<void>}
      * @private
      */
     async _soyRunJar(args) {
 
-        const soyCompilerJarPath = path.join(__dirname, "../closure_templates/SoyToJsSrcCompiler.jar");
-
-        args = [this.getJavaExec(), "-jar", soyCompilerJarPath].concat(args);
+        args = [this.getJavaExec(), "-jar", this.getJarPath()].concat(args);
 
         const command = args.join(" ");
 

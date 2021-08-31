@@ -64,6 +64,7 @@ class Logger {
  * @property {string} soyFilesGlob - glob of the files you will be watching in the working directory
  * @property {string} workingDirectory - absolute path to the working directory
  * @property {boolean} verbose - print extra info
+ * @property {string} customCompileJarPath - absolute path to a custom jar file for compiling
  *
  */
 
@@ -114,7 +115,8 @@ class SoyOptions {
             "ignore",
             "soyFilesGlob",
             "workingDirectory",
-            "verbose"
+            "verbose",
+            "customCompileJarPath"
         ];
     }
 
