@@ -1,9 +1,9 @@
 const loaderUtils = require("loader-utils");
 const SoyBuilder = require("../src/builder");
 const path = require("path");
-const fs = require('fs');
 
 module.exports = function (content, map, meta) {
+    const fs = this.fs.fileSystem;
     const options = loaderUtils.getOptions(this);
     const callback = this.async();
     this.cacheable();
@@ -16,6 +16,11 @@ module.exports = function (content, map, meta) {
     const absoluteFilePathWithoutFile = loaderUtils.interpolateName(this, "[path]", {content: content});
     const relativeFilePath = path.relative(options.workingDirectory, absoluteFilePathWithoutFile);
     const tempDirPath = options.tempDir ? options.tempDir : path.join(options.workingDirectory, "/temp_soyified");
+
+    if (!fs.existsSync(tempDirPath)){
+        fs.mkdirSync(tempDirPath, { recursive: true });
+    }
+
     const outputPath = options.locale ?
         `${tempDirPath}/{LOCALE}/${relativeFilePath}/{INPUT_FILE_NAME_NO_EXT}.js`
         :
