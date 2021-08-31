@@ -1,3 +1,5 @@
 The following files were downloaded from https://dl.google.com/closure-templates/closure-templates-for-javascript-latest.zip
 
+Download link: https://repo1.maven.org/maven2/com/google/template/soy/2021-02-01/
+
 Release: 2021-02-01
