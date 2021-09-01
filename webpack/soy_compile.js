@@ -32,6 +32,7 @@ module.exports = function (content, map, meta) {
         locales: options.locale,
         workingDirectory: options.workingDirectory,
         messageFilePathFormat: options.localeFiles,
+        customCompileJarPath: options.customCompileJarPath,
         outputPathFormat: outputPath
     }
 
