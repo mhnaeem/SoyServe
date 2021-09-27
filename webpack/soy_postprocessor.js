@@ -11,7 +11,7 @@ module.exports = function (content) {
         content = addGoogProvide(content);
     }
     else if(options.modular) {
-        content = transformIntoEs6ModuleExports(content);
+        content = transformIntoGoogModules(content);
 
         if(options.useModule) {
             content = addGoogModule(content, options.declareLegacyNamespace);
@@ -45,7 +45,7 @@ const addGoogModule = (content, legacyNamespace) => {
     return tempContent;
 }
 
-const transformIntoEs6ModuleExports = (content) => {
+const transformIntoGoogModules = (content) => {
 
     const functionNames = [];
 
@@ -61,7 +61,7 @@ const transformIntoEs6ModuleExports = (content) => {
         return `const ${p2}${p3}`;
     });
 
-    return `${content}\n// Adding module.exports statement\nmodule.exports = { ${functionNames.join(", ")} };`
+    return `${content}\n// Adding exports statement\nexports = { ${functionNames.join(", ")} };`
 }
 
 
