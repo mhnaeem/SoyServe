@@ -38,7 +38,7 @@ const addGoogProvide = (content) => {
 }
 
 const addGoogModule = (content, legacyNamespace) => {
-    let tempContent = `${content}\n\n// Exporting module using a goog.module statement\ngoog.module('${getNamespaceString(content)}');\n`;
+    let tempContent = `goog.module('${getNamespaceString(content)}');// Exporting module using a goog.module statement\n\n${content}\n`
     if(legacyNamespace) {
         tempContent = `${tempContent}\n// Making the module publicly accessible\ngoog.module.declareLegacyNamespace();\n`;
     }
