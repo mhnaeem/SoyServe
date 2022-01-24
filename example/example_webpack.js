@@ -6,7 +6,7 @@ const SoyPreProcessorLoader = require("../index").SoyPreProcessorLoader;
 module.exports = {
     entry: ['sourceFiles0.js', './sourceFile1.js'],
     output: {
-        path: path.join(__dirname, '../dist/'),
+        path: path.join(__dirname, "..", "dist"),
         filename: 'main.js'
     },
     mode: 'production',
@@ -31,9 +31,9 @@ module.exports = {
                         options: {
                             locale: "en",
                             verbose: false,
-                            tempDir: path.join(process.cwd(), "/tmp"),
+                            tempDir: path.join(process.cwd(), "tmp"),
                             workingDirectory: path.join(process.cwd()),
-                            localeFiles: path.join(process.cwd(), "/translations/{LOCALE}.xlf")
+                            localeFiles: path.join(process.cwd(), "translations", "{LOCALE}.xlf")
                         }
                     },
                     {

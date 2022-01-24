@@ -9,9 +9,9 @@ const SoyPostProcessorLoader = require("./webpack/soy_postprocessor");
 const SoyPreProcessorLoader = require("./webpack/soy_preprocessor");
 
 const Webpack = {
-    SoyCompileLoader: path.join(__dirname, "./webpack/soy_compile"),
-    SoyPostProcessorLoader: path.join(__dirname, "./webpack/soy_postprocessor"),
-    SoyPreProcessorLoader: path.join(__dirname, "./webpack/soy_preprocessor")
+    SoyCompileLoader: path.join(__dirname, "webpack", "soy_compile"),
+    SoyPostProcessorLoader: path.join(__dirname, "webpack", "soy_postprocessor"),
+    SoyPreProcessorLoader: path.join(__dirname, "webpack", "soy_preprocessor")
 }
 
 module.exports = {

@@ -15,7 +15,7 @@ module.exports = function (content, map, meta) {
     const absoluteFilePath = loaderUtils.interpolateName(this, "[path][name].[ext]", {content: content});
     const absoluteFilePathWithoutFile = loaderUtils.interpolateName(this, "[path]", {content: content});
     const relativeFilePath = path.relative(options.workingDirectory, absoluteFilePathWithoutFile);
-    const tempDirPath = options.tempDir ? options.tempDir : path.join(options.workingDirectory, "/temp_soyified");
+    const tempDirPath = options.tempDir ? options.tempDir : path.join(options.workingDirectory, "temp_soyified");
 
     if (!fs.existsSync(tempDirPath)){
         fs.mkdirSync(tempDirPath, { recursive: true });

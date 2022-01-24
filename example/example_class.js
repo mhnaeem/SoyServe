@@ -14,7 +14,7 @@ const runExample = async () => {
         srcs: sourceFiles.join(","),
         watch: true,
         locales: "es-ES,en",
-        messageFilePathFormat: path.join(__dirname, "/translations/{LOCALE}.xlf"),
+        messageFilePathFormat: path.join(__dirname, "translations", "{LOCALE}.xlf"),
         outputPathFormat: "./soyified/{LOCALE}/{INPUT_DIRECTORY}/{INPUT_FILE_NAME_NO_EXT}.js",
         soyFilesGlob: "**/*.soy",
         ignore: /(.*node_modules|.*\.git|.*soyified|.*dist|.*\.idea)/,

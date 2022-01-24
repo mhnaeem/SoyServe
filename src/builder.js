@@ -98,7 +98,7 @@ class SoyBuilder {
         }
 
         if(!this.jarPath) {
-            this.jarPath = path.join(__dirname, "../closure_templates/SoyToJsSrcCompiler.jar");
+            this.jarPath = path.join(__dirname, "..", "closure_templates", "SoyToJsSrcCompiler.jar");
         }
 
         return this.jarPath;
