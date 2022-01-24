@@ -1,7 +1,7 @@
 {
   "name": "soy-serve",
   "description": "Tools to deal with Soy templates using Node.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": {
     "url": "https://github.com/mhnaeem/SoyServe.git",
     "type": "git"
