@@ -2,6 +2,11 @@
   "name": "soy-serve",
   "description": "Tools to deal with Soy templates using Node.js",
   "version": "1.0.2",
+  "repository": {
+    "url": "https://github.com/mhnaeem/SoyServe.git",
+    "type": "git"
+  },
+  "license": "MIT",
   "dependencies": {
     "chokidar": "3.5.2",
     "loader-utils": "2.0.0"
