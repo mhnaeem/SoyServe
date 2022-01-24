@@ -21,22 +21,47 @@ module.exports = function (content) {
     return content;
 };
 
+/**
+ * Removes goog.DEBUG based statements from the compiled Soy files
+ *
+ * @param {string} content
+ * @return {string}
+ */
 const removeDebugStatements = (content) => {
     let toReturn = content.replace(/if\s\(goog\.DEBUG\)\s{\n.*\n}\n/g, "");
     toReturn = toReturn.replace(/\+\s\(\(goog\.DEBUG\s&&\ssoy\.\$\$debugSoyTemplateInfo\)\s\?\s'.*?\s:\s''\)/g, "")
     return toReturn;
 }
 
+/**
+ * Get the namespace for the current template file
+ *
+ * @param {string} content
+ * @return {string}
+ */
 const getNamespaceString = (content) => {
     return content
         .match(/@fileoverview.*/)[0]
         .slice(37,-1);
 }
 
+/**
+ * Add `goog.provide("soy.namespace")` type statement in the compiled file
+ *
+ * @param {string} content
+ * @return {string}
+ */
 const addGoogProvide = (content) => {
     return `${content}\n\n// Exporting module using a goog.provide statement\ngoog.provide('${getNamespaceString(content)}');\n`;
 }
 
+/**
+ * Add a `goog.module("soy.namespace")` statement
+ *
+ * @param {string} content
+ * @param {boolean} legacyNamespace
+ * @return {string}
+ */
 const addGoogModule = (content, legacyNamespace) => {
     let tempContent = `goog.module('${getNamespaceString(content)}');// Exporting module using a goog.module statement\n\n${content}\n`
     if(legacyNamespace) {
@@ -45,6 +70,12 @@ const addGoogModule = (content, legacyNamespace) => {
     return tempContent;
 }
 
+/**
+ * Convert the file into goog modules, export all the functions instead of defining them on a global namespace
+ *
+ * @param {string} content
+ * @return {string}
+ */
 const transformIntoGoogModules = (content) => {
 
     const functionNames = [];
