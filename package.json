@@ -7,6 +7,7 @@
     "loader-utils": "2.0.0"
   },
   "devDependencies": {
+    "np": "7.6.0",
     "tiny-glob": "0.2.9"
   }
 }
