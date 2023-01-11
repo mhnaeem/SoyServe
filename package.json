@@ -8,11 +8,11 @@
   },
   "license": "MIT",
   "dependencies": {
-    "chokidar": "3.5.2",
-    "loader-utils": "2.0.0"
+    "chokidar": "3.5.3",
+    "loader-utils": "2.0.4"
   },
   "devDependencies": {
-    "np": "7.6.0",
+    "np": "7.6.3",
     "tiny-glob": "0.2.9"
   }
 }
