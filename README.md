@@ -1,5 +1,7 @@
 # SoyServe
 
+[![NPM](https://nodei.co/npm/soy-serve.png?mini=true)](https://www.npmjs.com/package/soy-serve)
+
 This repository contains multiple tools to allow us to handle Soy or officially known as [Closure Templates](https://github.com/google/closure-templates) based files for a NodeJS based application. It contains a compiler utility, watcher which checks for file changes and recompiles, and it also contains loaders for Webpack to allow for integration between Webpack and Closure Templates.
 
 **Note:** This is just a layer on top of the original Soy Compiler provided by Google. You still need Java and the Soy compiler to run this.
