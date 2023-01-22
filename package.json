@@ -6,6 +6,12 @@
     "url": "https://github.com/mhnaeem/SoyServe.git",
     "type": "git"
   },
+  "keywords": [
+    "soy",
+    "goog",
+    "closure",
+    "templates"
+  ],
   "license": "MIT",
   "dependencies": {
     "chokidar": "3.5.3",
